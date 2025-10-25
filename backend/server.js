@@ -15,7 +15,13 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
-app.use(cors())
+app.use(
+  cors({
+    origin: "https://doctorappointmentsystemusingmernstack-2.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true, // if you use cookies or auth headers
+  })
+);
 
 // api endpoints
 app.use("/api/user", userRouter)
